@@ -188,8 +188,9 @@ See `+emacs-lisp-non-package-mode' for details.")
 
 (use-package! flycheck-package
   :when (modulep! :checkers syntax -flymake)
+  :defer t
   :after flycheck
-  :config (flycheck-package-setup))
+  :hook (emacs-lisp-mode . flycheck-package-setup))
 
 
 (use-package! elisp-demos
